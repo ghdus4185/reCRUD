@@ -4,7 +4,11 @@ from .models import Todo
 
 
 def index(request):
-    return render(request, 'index.html')
+    todos = Todo.objects.all()
+    context = {
+        'todos': todos,
+    }
+    return render(request, 'index.html', context)
 
 
 def new(request):
